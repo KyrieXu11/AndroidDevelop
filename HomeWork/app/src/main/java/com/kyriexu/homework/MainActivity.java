@@ -17,8 +17,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment tab02 = new Tab02Fragment();
     private Fragment tab03 = new Tab03Fragment();
     private Fragment tab04 = new Tab04Fragment();
-    // fragment通讯的控制器
 
+    private ImageButton btn1 ;
+    private ImageButton btn2 ;
+    private ImageButton btn3 ;
+    private ImageButton btn4 ;
+
+    // fragment通讯的控制器
     private FragmentManager manager;
 
     @Override
@@ -26,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        welcomPage();
         initView();
+        welcomPage();
     }
 
     // demo 方法
@@ -47,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 默认的页面
     private void welcomPage(){
+        // 设置按钮的颜色
+        btn1.setImageResource(R.drawable.tab_weixin_pressed);
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.content,tab01);
@@ -54,10 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView(){
-        ImageButton btn1 = findViewById(R.id.bottom_icon_btn1);
-        ImageButton btn2 = findViewById(R.id.bottom_icon_btn2);
-        ImageButton btn3 = findViewById(R.id.bottom_icon_btn3);
-        ImageButton btn4 = findViewById(R.id.bottom_icon_btn4);
+        btn1 = findViewById(R.id.bottom_icon_btn1);
+        btn2 = findViewById(R.id.bottom_icon_btn2);
+        btn3 = findViewById(R.id.bottom_icon_btn3);
+        btn4 = findViewById(R.id.bottom_icon_btn4);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -71,18 +78,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.bottom_icon_btn1:
                 Log.i(v.getId()+"",v.getId()+"");
+                btn1.setImageResource(R.drawable.tab_weixin_pressed);
+                btn2.setImageResource(R.drawable.tab_find_frd_normal);
+                btn3.setImageResource(R.drawable.tab_address_normal);
+                btn4.setImageResource(R.drawable.tab_settings_normal);
                 transaction.replace(R.id.content,tab01);
                 break;
             case R.id.bottom_icon_btn2:
                 Log.i(v.getId()+"",v.getId()+"");
+                btn1.setImageResource(R.drawable.tab_weixin_normal);
+                btn2.setImageResource(R.drawable.tab_find_frd_pressed);
+                btn3.setImageResource(R.drawable.tab_address_normal);
+                btn4.setImageResource(R.drawable.tab_settings_normal);
                 transaction.replace(R.id.content,tab02);
                 break;
             case R.id.bottom_icon_btn3:
                 Log.i(v.getId()+"",v.getId()+"");
+                btn1.setImageResource(R.drawable.tab_weixin_normal);
+                btn2.setImageResource(R.drawable.tab_find_frd_normal);
+                btn3.setImageResource(R.drawable.tab_address_pressed);
+                btn4.setImageResource(R.drawable.tab_settings_normal);
                 transaction.replace(R.id.content,tab03);
                 break;
             case R.id.bottom_icon_btn4:
                 Log.i(v.getId()+"",v.getId()+"");
+                btn1.setImageResource(R.drawable.tab_weixin_normal);
+                btn2.setImageResource(R.drawable.tab_find_frd_normal);
+                btn3.setImageResource(R.drawable.tab_address_normal);
+                btn4.setImageResource(R.drawable.tab_settings_pressed);
                 transaction.replace(R.id.content,tab04);
                 break;
         }

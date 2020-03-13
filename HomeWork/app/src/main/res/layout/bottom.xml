@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_bar"
             android:contentDescription="@string/bottom_icon_txt1"
-            app:srcCompat="@drawable/tab_weixin_pressed" />
+            app:srcCompat="@drawable/tab_weixin_normal" />
 
         <TextView
             android:id="@+id/bottom_icon_txt1"
