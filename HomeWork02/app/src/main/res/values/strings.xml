@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HomeWork02</string>
+    <string name="top_title">微信聊天</string>
+    <string name="bottom_icon_txt1">微信</string>
+    <string name="bottom_icon_txt2">朋友</string>
+    <string name="bottom_icon_txt3">通讯录</string>
+    <string name="bottom_icon_txt4">设置</string>
+    <string name="tab01_txt">微信聊天</string>
+    <string name="tab02_txt">朋友</string>
+    <string name="tab03_txt">通讯录</string>
+    <string name="tab04_txt">设置</string>
+    <string name="item">行</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

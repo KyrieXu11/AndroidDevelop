@@ -1,22 +1,25 @@
-package com.kyriexu.homework;
+package com.kyriexu.homework02;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Fragment tab01 = new Tab01Fragment();
-
-    private Fragment tab02 = new Tab02Fragment();
-    private Fragment tab03 = new Tab03Fragment();
-    private Fragment tab04 = new Tab04Fragment();
+    private Fragment tab01;
+    private Fragment tab02;
+    private Fragment tab03;
+    private Fragment tab04;
 
     private ImageButton btn1 ;
     private ImageButton btn2 ;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initView();
         welcomPage();
+
     }
 
     // demo 方法
@@ -52,11 +56,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 默认的页面
     private void welcomPage(){
+
+        tab01 = new Tab01Fragment();
+        tab02 = new Tab02Fragment();
+        tab03 = new Tab03Fragment();
+        tab04 = new Tab04Fragment();
+
         // 设置按钮的颜色
         btn1.setImageResource(R.drawable.tab_weixin_pressed);
         manager = getSupportFragmentManager();
+
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.content,tab01);
+
         transaction.commit();
     }
 
