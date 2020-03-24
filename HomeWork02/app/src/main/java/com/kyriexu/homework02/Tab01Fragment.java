@@ -4,19 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Objects;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Tab01Fragment extends Fragment {
+    private List<String> dataSet;
+
+    public Tab01Fragment(List<String> dataSet) {
+        this.dataSet = dataSet;
+    }
 
     public Tab01Fragment() {
         // Required empty public constructor
@@ -29,10 +33,6 @@ public class Tab01Fragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         View view = inflater.inflate(R.layout.tab01, container, false);
-        String[] dataSet = new String[]{
-                "123","234","456"
-        };
-        // getActivity().findViewByid
         RecyclerView recyclerView = view.findViewById(R.id.rcy_view);
         // change content not change layout size of recyclerview
         recyclerView.setHasFixedSize(true);
@@ -40,17 +40,12 @@ public class Tab01Fragment extends Fragment {
         FragmentActivity activity = getActivity();
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity,
                 LinearLayoutManager.VERTICAL,false);
-        // set layoout manager
+        // set layout manager
         recyclerView.setLayoutManager(layoutManager);
         // get an adapter instance
-        Adapter adapter = new Adapter(dataSet,activity);
+        Adapter adapter = new Adapter<>(dataSet, activity);
         // set adapter for recyclerview
         recyclerView.setAdapter(adapter);
         return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

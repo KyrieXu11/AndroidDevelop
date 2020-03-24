@@ -15,6 +15,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Fragment tab01;
     private Fragment tab02;
@@ -56,8 +59,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 默认的页面
     private void welcomPage(){
-
-        tab01 = new Tab01Fragment();
+        List<String> dataSet=new ArrayList<>(20);
+        for (int i = 0; i < 20; i++) {
+            dataSet.add(i+"");
+        }
+        tab01 = new Tab01Fragment(dataSet);
         tab02 = new Tab02Fragment();
         tab03 = new Tab03Fragment();
         tab04 = new Tab04Fragment();
