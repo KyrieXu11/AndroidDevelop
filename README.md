@@ -12,3 +12,5 @@
 [项目4](docs/homework04.md)
 
 [项目5](docs/homework05.md)
+
+[项目6](docs/homework06.md)
